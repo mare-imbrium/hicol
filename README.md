@@ -36,9 +36,10 @@ Caveats: This is a simple tool. It does not understand delimiters inside quoted 
 
 # Issues:
 
-Currently, does not handle fields that do not exist.
-TODO: We need to ignore such fields since some user may want to highlight a field that exists only in some lines.
-Currently, will throw an error.
+Takes only one color combination, which is applied to all fields. Cannot take separate colors for different fields.
+I may not work on this. Feel free to send a push request or patch for that.
+
+- Now ignores a field that does not exist.
 
 # License
    MIT License.
