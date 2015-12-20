@@ -6,7 +6,7 @@
 #       Author: j kepler  http://github.com/mare-imbrium/canis/
 #         Date: 2015-12-19 - 18:37
 #      License: MIT
-#  Last update: 2015-12-20 19:15
+#  Last update: 2015-12-20 20:01
 # ----------------------------------------------------------------------------- #
 #  hicol.rb  Copyright (C) 2012-2016 j kepler
 
@@ -21,11 +21,11 @@
 #
 
 # escaped bash color codes
-red = "\e[31m"
-reset_color = "\e[0m"
-fgcolor = red
+fgcolor = "\e[31m"
 bgcolor = "\x1b[48;5;0m" 
+reset_color = "\e[0m"
 
+# unused
 colorized_output = true
 delim = "\t"
 # columns to highlight. If none specified, then first
@@ -76,11 +76,16 @@ while input = ARGF.gets
     # colorize the columns requested
     # join lines again
     cols = line.split(delim)
+    colsz = cols.size - 1
     list.each_with_index {|e, ix|
-      val = cols[e.to_i - 1]
+      indx = e.to_i - 1
+      # ignore non existent field
+      next if indx > colsz
+
+      val = cols[indx]
       val.insert(0, fgbg)
       val.insert(-1, reset_color)
-      cols[e.to_i - 1] = val
+      cols[indx] = val
 
     }
     output_line = cols.join(delim)
@@ -88,6 +93,7 @@ while input = ARGF.gets
     begin
       $stdout.puts output_line
     rescue Errno::EPIPE
+      # in case the pipe closes before we are done writing
       exit(74)
     end
   end
