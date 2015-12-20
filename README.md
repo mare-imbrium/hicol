@@ -20,15 +20,15 @@ Caveats: This is a simple tool. It does not understand delimiters inside quoted 
 
      hicol.rb --help
 
-Usage: hicol.rb [options] [files]
-Highlight given columns of input. Columns and single bg fg pair may be specified
+    Usage: hicol.rb [options] [files]
+    Highlight given columns of input. Columns and single bg fg pair may be specified
 
-Specific options:
-    -f, --columns 1,2,3              Column/s to highlight (index 1)
-    -d, --delim S                    delimiter, default is tab
-        --fg NUM                     Foreground color number 0 - 255
-        --bg NUM                     Background color number 0 - 255
-    -h, --help                       Highlight Columns of delimited data
+    Specific options:
+        -f, --columns 1,2,3              Column/s to highlight (index 1)
+        -d, --delim S                    delimiter, default is tab
+            --fg NUM                     Foreground color number 0 - 255
+            --bg NUM                     Background color number 0 - 255
+        -h, --help                       Highlight Columns of delimited data
 
 # Install
 
