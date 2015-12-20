@@ -34,5 +34,11 @@ Caveats: This is a simple tool. It does not understand delimiters inside quoted 
 
       Place hicol.rb in your PATH and preferably rename to hicol.
 
+# Issues:
+
+Currently, does not handle fields that do not exist.
+TODO: We need to ignore such fields since some user may want to highlight a field that exists only in some lines.
+Currently, will throw an error.
+
 # License
    MIT License.
